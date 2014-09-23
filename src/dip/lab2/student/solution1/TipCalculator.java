@@ -4,12 +4,14 @@ package dip.lab2.student.solution1;
  *
  * @author jmiller28
  */
-public abstract class TipCalculator {
+public interface TipCalculator {
 
-    private TipCalculator tipCalculator;
+    //private TipCalculator tipCalculator;
     //private double tipPercent;
 
-    public abstract void calculateTip(double tipPercent);
+    public abstract double getTip();
+    
+    //public abstract void calculateTip(double tipPercent);
 
 //    public enum ServiceQuality {
 //

@@ -12,8 +12,18 @@ public class TipCalculatorManager {
         this.tipCalculator = tipCalculator;
     }
 
-    public void CalculateTip() {
-
-        tipCalculator.calculateTip();
+    public TipCalculator getTipCalculator() {
+        return tipCalculator;
     }
+
+    public void setTipCalculator(TipCalculator tipCalculator) {
+        this.tipCalculator = tipCalculator;
+    }
+
+    public double getTip() {
+        tipCalculator.getTip();
+        return tipCalculator.getTip();
+    }
+    
+
 }

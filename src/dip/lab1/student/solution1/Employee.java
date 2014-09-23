@@ -4,7 +4,7 @@ package dip.lab1.student.solution1;
  *
  * @author jmiller
  */
-public abstract class Employee {
+public interface Employee {
     
     
     public abstract double getAnnualWages();
