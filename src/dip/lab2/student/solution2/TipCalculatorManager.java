@@ -17,7 +17,7 @@ public class TipCalculatorManager {
     }
 
     public double getTip() {
-        tipCalculator.getTip();
+//        tipCalculator.getTip();
         return tipCalculator.getTip();
     }
 }

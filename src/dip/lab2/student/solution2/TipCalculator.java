@@ -13,5 +13,5 @@ public interface TipCalculator {
     public double fairRate = 0.15;
     public double poorRate = 0.10;
 
-    double getTip();
+    public abstract double getTip();
 }
