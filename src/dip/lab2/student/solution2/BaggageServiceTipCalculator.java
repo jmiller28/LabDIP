@@ -15,14 +15,14 @@ public class BaggageServiceTipCalculator implements TipCalculator {
     private ServiceQuality serviceQuality;
 
     public BaggageServiceTipCalculator(ServiceQuality q, int bags) {
-        this.setServiceRating(q); // perform validation
-        this.setBagCount(bags);
-        baseTipPerBag = 1.00; // set default value
+        setServiceRating(q);
+        setBagCount(bags);
+        baseTipPerBag = 1.00;
     }
 
     @Override
     public double getTip() {
-        double tip = 0.00; // always initialize local variables
+        double tip = 0.00;
 
         switch (serviceQuality) {
             case GOOD:
@@ -39,17 +39,12 @@ public class BaggageServiceTipCalculator implements TipCalculator {
         return tip;
     }
 
-    public final void setServiceRating(ServiceQuality q) {
-        // No need to validate because enums provide type safety!
-        serviceQuality = q;
-    }
-
-    public ServiceQuality getServiceQuality() {
-        return serviceQuality;
-    }
-
-    public int getBagCount() {
-        return bagCount;
+    public final void setBaseTipPerBag(double baseTipPerBag) {
+        if (baseTipPerBag < 0) {
+            throw new IllegalArgumentException(
+                    "error: base tip must be greater than or equal to zero");
+        }
+        this.baseTipPerBag = baseTipPerBag;
     }
 
     public final void setBagCount(int bagCount) {
@@ -60,16 +55,20 @@ public class BaggageServiceTipCalculator implements TipCalculator {
         this.bagCount = bagCount;
     }
 
+    public final void setServiceRating(ServiceQuality q) {
+        serviceQuality = q;
+    }
+
+    public int getBagCount() {
+        return bagCount;
+    }
+
     public double getBaseTipPerBag() {
         return baseTipPerBag;
     }
 
-    public void setBaseTipPerBag(double baseTipPerBag) {
-        if (baseTipPerBag < 0) {
-            throw new IllegalArgumentException(
-                    "error: base tip must be greater than or equal to zero");
-        }
-        this.baseTipPerBag = baseTipPerBag;
+    public ServiceQuality getServiceQuality() {
+        return serviceQuality;
     }
-
+    
 }

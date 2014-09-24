@@ -15,12 +15,16 @@ public class SalariedBonusEmployee implements Employee {
     }
 
     @Override
-    public double getAnnualWages() {
+    public final double getAnnualWages() {
         return annualSalary + annualBonus;
     }
 
-    public double getAnnualSalary() {
-        return annualSalary;
+    public void setAnnualBonus(double annualBonus) {
+        if (annualBonus < 0) {
+            throw new IllegalArgumentException();
+
+        }
+        this.annualBonus = annualBonus;
     }
 
     public void setAnnualSalary(double annualSalary) {
@@ -35,12 +39,7 @@ public class SalariedBonusEmployee implements Employee {
         return annualBonus;
     }
 
-    public void setAnnualBonus(double annualBonus) {
-        if (annualBonus < 0) {
-            throw new IllegalArgumentException();
-
-        }
-        this.annualBonus = annualBonus;
+    public double getAnnualSalary() {
+        return annualSalary;
     }
-
 }
